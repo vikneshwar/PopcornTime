@@ -66,6 +66,7 @@ $(function(){
 					$('td div.box.selected').removeClass('selected').addClass('registered');
 					var trString = '<tr><td>' + userName + '</td><td>' + selectedCount + '</td><td>' + seatNumbers + '<td></tr>'
 					$('.registered-users table').append(trString);
+					showToast('Thanks ! Tickets has been booked')
 					console.log("success");
 				})
 				.fail(function(jqXHR, testStatus, error) {
@@ -78,11 +79,14 @@ $(function(){
 			}
 		});
 
-		var showToast = function(message){
-			Materialize.toast(message, 6000)
-		}
+		
 
 	});
+
+	var showToast = function(message){
+			Materialize.toast(message, 6000)
+	}
+
 	var renderView = function(xhrData){
 		var template = $('#seat-list').html();
 		var templateScript = Handlebars.compile(template);
@@ -94,7 +98,6 @@ $(function(){
 		data.users = xhrData.users;
 		var html = 	templateScript(data);
 		$('.templateContainer').empty().append(html);
-		
 		var maxCount = $('.box').length - $('.box.registered').length;
 		$("#seats_no").attr('max',maxCount);
 	}
