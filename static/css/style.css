@@ -49,6 +49,7 @@ html, body {
 
  .registered {
  	background-color: red;
+ 	cursor: not-allowed;
  }
 .available:hover {
 	background-color: green;
