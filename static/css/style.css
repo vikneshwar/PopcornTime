@@ -1,0 +1,102 @@
+html {
+	display: table;
+	margin: auto;
+}
+body {
+	background:
+	linear-gradient(
+		cyan,
+		transparent
+	),
+	linear-gradient(
+		-45deg,
+		magenta,
+		transparent
+	),
+	linear-gradient(
+		45deg,
+		yellow,
+		transparent
+	);
+	background-blend-mode: multiply;
+	display: table-cell;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+
+
+.box{
+  float: left;
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}
+.seat-selector td {
+  padding :10px;
+  text-align: center;
+ }
+
+ .seat-selector.card-panel {
+ 	padding-bottom: 40px;
+ }
+
+ .card-panel {
+ 	 margin-bottom: 4em;
+ }
+
+ .registered {
+ 	background-color: red;
+ }
+.available:hover {
+	background-color: green;
+} 
+
+.selected {
+	background-color: green;	
+}
+.confirm-container {
+	margin-top: 40px;
+}
+caption {
+	font-size: xx-large;
+    font-style: italic;
+}
+
+.error {
+	display: none;
+	font-size: 0.8rem;
+    color: #FF4081;
+    position: relative;
+    left: 3rem;
+}
+
+.seat-selector td:first-child {
+    font-weight: bold;
+}
+
+
+.logoContainer {
+    text-align: center;
+}
+#navbar-fixed {
+    position: relative;
+    height: 64px;
+    z-index: 1111;
+}
+
+#navbar-fixed nav {
+    position: fixed;
+    height: 64px;
+    line-height: 64px;
+    left: 0px;
+}
+
+#logo {
+    font-size: 42px;
+}
+
+nav{
+	background-color: #607d8b;
+}

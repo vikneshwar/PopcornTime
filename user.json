@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "userName": "Viknesh",
+      "totalSeats": "3",
+      "selectedSeats": "A1,A2,A5"
+    },
+    {
+      "userName": "Michelle",
+      "totalSeats": "3",
+      "selectedSeats": "D9,D10,D11"
+    }
+  ],
+  "registeredSeats": [
+    "A1",
+    "A2",
+    "A5",
+    "D9",
+    "D10",
+    "D11"
+  ]
+}

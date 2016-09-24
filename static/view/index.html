@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Popcorn Time</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+
+	<script type="text/javascript" src="js/script.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+</head>
+<body>
+	<div id="navbar-fixed">
+		<nav>
+			<div class="logoContainer">
+				<span id="logo">Popcorn Times</span>
+			</div>
+
+		</nav>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<div class="col s12 templateContainer">
+				
+			</div>
+		</div>
+	</div>
+	<script type="text/x-handlebars-template" id="seat-list">
+		<div class="card-panel z-depth-3 user-info">
+			<div class="row">
+				<div class="input-field col s4">
+					<i class="material-icons prefix">account_circle</i>
+					<input id="user_name" type="text" class="validate" required="required">
+					<label for="user_name">Name</label>
+					<div id="name_error" class="error left">Enter a name</div>
+				</div>
+
+				<div class="input-field col s4">
+					<i class="material-icons prefix">event_seat</i>
+					<input id="seats_no" type="number" class="validate" min="1" max="" required="required">
+					<label for="seats_no">No.of Seats</label>
+					<div id="seat_error" class="error left">Select the no.of Seats</div>
+				</div>
+
+				<div class="input-field col s4">
+					<a class="waves-effect waves-light btn confirm-seats"><i class="material-icons right">movie</i>Start Selecting</a>
+				</div>
+			</div>
+		</div>
+		<div class="card-panel z-depth-3 seat-selector">
+			<table>
+				<caption>Select your seats</caption>
+				{{#each row}}
+				{{#if @first}}
+				<tr>
+					{{#each ../column}}
+					<th>{{this}}</th>
+					{{/each}}
+				</tr>
+				{{else}}	
+				<tr>
+					{{#each ../column}}
+					{{#if @first}}
+					<td>{{../this}}</td>
+					{{else}}
+					<td><div data-item-id={{../this}}{{this}} class="box {{isBooked ../this this}}"></div></td>
+					{{/if}}
+					{{/each}}
+				</tr>
+				{{/if}}
+				{{/each}}
+			</table>
+			<div class="center confirm-container">
+				<button class="btn waves-effect waves-light" id="submitBtn">Confirm
+					<i class="material-icons right">send</i>
+				</button>
+			</div>
+		</div>
+		{{#if users}}
+		<div class="card-panel z-depth-3 registered-users">
+			<table class="bordered">
+				<caption>Registered Users</caption>
+				<tr>
+					<th>Name</th>
+					<th>Seat Count</th>
+					<th>Seat Details</th>
+				</tr>
+				{{#each users}}
+					<tr>
+						<td>{{this.userName}}</td>
+						<td>{{this.totalSeats}}</td>
+						<td>{{this.selectedSeats}}</td>	
+					</tr>
+				{{/each}}
+			</table>
+		</div>
+		{{/if}}
+	</script>
+	<div id="sysErrorModal" class="modal">
+		<div class="modal-content">
+			<p>There is an error processing your request , please check later or contact customer support. </p>
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="modal-action modal-close waves-effect grey darken-1 btn">Close</a>
+		</div>
+	</div>
+</body>
+</html>
