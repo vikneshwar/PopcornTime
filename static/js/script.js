@@ -79,7 +79,7 @@ $(function(){
 		});
 
 		var showToast = function(message){
-			Materialize.toast(message, 4000)
+			Materialize.toast(message, 6000)
 		}
 
 	});
@@ -94,6 +94,7 @@ $(function(){
 		data.users = xhrData.users;
 		var html = 	templateScript(data);
 		$('.templateContainer').empty().append(html);
+		
 		var maxCount = $('.box').length - $('.box.registered').length;
 		$("#seats_no").attr('max',maxCount);
 	}
