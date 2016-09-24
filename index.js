@@ -29,7 +29,7 @@ app.use(function (err, req, res, next) {//jshint ignore:line
 		message: err + " Sorry for inconvience, please try again later. Feel free to log the issue."
 	});
 });
-var port = 9000 || process.env.port
+var port = process.env.port || 9000
 app.listen(port ,function() {
     console.log('Express server listening on: '+port);
 });
